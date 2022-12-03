@@ -1,4 +1,5 @@
-// General java configuration plugin to use in other specific plugins.
+// Custom convention plugin.
+// Plugins that only reconfigure existing plugins are typically called 'convention plugin'.
 plugins {
     id("java") // Core java. Needed to set java version extension.
 }
