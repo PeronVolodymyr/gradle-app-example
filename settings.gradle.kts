@@ -8,8 +8,9 @@ pluginManagement {
 //        credentials.username = "..."
 //        credentials.password = "..."
 //    }
-//    // your own implemented plugins locally
-//    includeBuild("gradle/plugins")
+//
+//  Custom plugins implementation.
+    includeBuild("gradle/plugins")
 }
 
 // include some java binary dependencies which are not a part of this project
@@ -21,7 +22,8 @@ dependencyResolutionManagement {
 //        credentials.username = "..."
 //        credentials.password = "..."
 //    }
-//    // include some java (not binary) dependency
+//
+//    Custom java dependency (not binary)
 //    includeBuild("../my-other-project")
 }
 
