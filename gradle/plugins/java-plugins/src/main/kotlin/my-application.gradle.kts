@@ -36,3 +36,15 @@ tasks.register<Zip>("bundle") {
     // save output of this task (zip file) into build directory and create 'distribution' folder there.
     destinationDirectory.set(layout.buildDirectory.dir("distribution"))
 }
+// Override base 'build' task
+tasks.build {
+    dependsOn(tasks.named("bundle"))
+}
+
+// Custom task
+tasks.register("buildAll") {
+    description = "Builds even more!"
+
+    dependsOn(tasks.build)
+    dependsOn(tasks.named("countJars"))
+}

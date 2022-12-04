@@ -1,7 +1,10 @@
 // Custom convention plugin. Created for shared build configuration.
 // Plugins that only reconfigure existing plugins are typically called 'convention plugin'.
 plugins {
-    id("java") // Core java. Needed to set java version extension.
+    // Core java. Needed to set java version extension.
+    // Includes id("base") which adds 'assemble', 'build' and 'check' tasks.
+    id("java")
+    // Code style library.
     id("com.diffplug.spotless")
 }
 
