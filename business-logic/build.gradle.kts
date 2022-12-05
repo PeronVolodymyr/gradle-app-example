@@ -18,8 +18,12 @@ dependencies {
 
 //  Versions of junit api and engine are managed by BOM inside 'com.example:platform'.
     implementation(platform("com.example:platform"))
+
     testImplementation("org.junit.jupiter:junit-jupiter-api")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
+
+    // dependencies for custom scope - 'integrationTest'
+    integrationTestImplementation(libs.mockito)
 
 //  Dependency is transitively visible during compilation. Only applicable to java libraries.
 //  This library will be transitively visible at compile. 'app' module depends on this 'business-logic' module.

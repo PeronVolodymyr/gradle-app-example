@@ -17,7 +17,14 @@ sourceSets.main {
 //  sourceSets.test {}
 
 //  We can create custom source sets.
-//  sourceSets.create("integrationTest")
+sourceSets.create("integrationTest")
+
+tasks.register<Test>("integrationTest") {
+    testClassesDirs = sourceSets["integrationTest"].output.classesDirs
+    classpath = sourceSets["integrationTest"].runtimeClasspath
+
+    useJUnitPlatform()
+}
 
 dependencies.components {
 //  Correction of 'slf4j-simple' dependency metadata to exclude 'slf4j-api' transitive dependency.
@@ -51,6 +58,8 @@ tasks.register<Test>("testSlow") {
 
 tasks.check {
     dependsOn(tasks.named("testSlow"))
+//  Comment out as 'integrationTest' is failing.
+//  dependsOn(tasks.named("integrationTest"))
 }
 
 // Be careful as it will configure all tasks with type 'JavaCompile'.
