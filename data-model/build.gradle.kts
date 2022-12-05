@@ -6,3 +6,8 @@ plugins {
     id("my-java-library")
 }
 
+dependencies {
+    //  Dependency versioning
+    implementation(platform("com.example:platform"))
+}
+

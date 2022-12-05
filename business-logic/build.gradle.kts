@@ -5,16 +5,19 @@ plugins {
 
 // 'business-logic' depends on 'data-model' module and external 'commons-lang3' library.
 dependencies {
+//  Dependency versioning
+    implementation(platform("com.example:platform"))
+
     implementation(project(":data-model"))
 
 //  Use 'implementation' instead of 'api' scope as you can end up with mess.
 //  It's better when each module has it's own dependencies declared.
 //  In that case you have components strictly isolated and there is less risk that something
 //  is used by an accident because it's just visible transitively during compilation.
-    implementation("org.apache.commons:commons-lang3:3.12.0")
+    implementation("org.apache.commons:commons-lang3")
 
 //  slf4j API specification
-    implementation("org.slf4j:slf4j-api:1.7.36")
+    implementation("org.slf4j:slf4j-api")
 
 //  Dependency is transitively visible during compilation. Only applicable to java libraries.
 //  This library will be transitively visible at compile. 'app' module depends on this 'business-logic' module.

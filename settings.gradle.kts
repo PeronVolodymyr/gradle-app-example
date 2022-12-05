@@ -23,8 +23,8 @@ dependencyResolutionManagement {
 //        credentials.password = "..."
 //    }
 //
-//    Custom java dependency (not binary)
-//    includeBuild("../my-other-project")
+//  Custom java dependency (not binary)
+    includeBuild("gradle/platform")
 }
 
 rootProject.name = "gradle-app-example"
