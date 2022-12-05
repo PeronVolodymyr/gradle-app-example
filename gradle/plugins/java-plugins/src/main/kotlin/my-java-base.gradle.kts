@@ -10,6 +10,15 @@ plugins {
     id("com.diffplug.spotless")
 }
 
+sourceSets.main {
+//    You can change the path to your source code. It's preferable stick to default source - src/main.
+//    java.setSrcDirs(listOf(layout.projectDirectory.dir("sources")))
+}
+//  sourceSets.test {}
+
+//  We can create custom source sets.
+//  sourceSets.create("integrationTest")
+
 dependencies.components {
 //  Correction of 'slf4j-simple' dependency metadata to exclude 'slf4j-api' transitive dependency.
 //  Not practical example. Just for education.

@@ -5,9 +5,6 @@ plugins {
 
 // 'business-logic' depends on 'data-model' module and external 'commons-lang3' library.
 dependencies {
-//  Dependency versioning. Comment it out as I would prefer to use another approach with 'libs.versions.toml'.
-//  implementation(platform("com.example:platform"))
-
     implementation(project(":data-model"))
 
 //  Use 'implementation' instead of 'api' scope as you can end up with mess.
@@ -18,6 +15,11 @@ dependencies {
 
 //  slf4j API specification
     implementation(libs.slf4j.api)
+
+//  Versions of junit api and engine are managed by BOM inside 'com.example:platform'.
+    implementation(platform("com.example:platform"))
+    testImplementation("org.junit.jupiter:junit-jupiter-api")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
 
 //  Dependency is transitively visible during compilation. Only applicable to java libraries.
 //  This library will be transitively visible at compile. 'app' module depends on this 'business-logic' module.
