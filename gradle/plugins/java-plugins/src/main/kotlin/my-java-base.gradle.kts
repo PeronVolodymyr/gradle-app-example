@@ -1,3 +1,5 @@
+import com.example.gradle.Slf4jSimpleRule
+
 // Custom convention plugin. Created for shared build configuration.
 // Plugins that only reconfigure existing plugins are typically called 'convention plugin'.
 plugins {
@@ -6,6 +8,12 @@ plugins {
     id("java")
     // Code style library.
     id("com.diffplug.spotless")
+}
+
+dependencies.components {
+//  Correction of 'slf4j-simple' dependency metadata to exclude 'slf4j-api' transitive dependency.
+//  Not practical example. Just for education.
+    withModule<Slf4jSimpleRule>("org.slf4j:slf4j-simple")
 }
 
 java {
