@@ -31,11 +31,26 @@ java {
 
 tasks.test {
     // Use Junit 5
-    useJUnitPlatform()
+    useJUnitPlatform {
+        excludeTags("slow") // slow test will be running by 'testSlow' task.
+    }
     // Increase your test performance by parallel execution
     maxParallelForks = 4
     // Modify this if you have memory hungry tests
     maxHeapSize = "1g"
+}
+
+tasks.register<Test>("testSlow") {
+    testClassesDirs = sourceSets.test.get().output.classesDirs
+    classpath = sourceSets.test.get().runtimeClasspath
+
+    useJUnitPlatform {
+        includeTags("slow") // 'testSlow' task will execute tests with 'slow' tag only.
+    }
+}
+
+tasks.check {
+    dependsOn(tasks.named("testSlow"))
 }
 
 // Be careful as it will configure all tasks with type 'JavaCompile'.
