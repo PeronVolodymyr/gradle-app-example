@@ -5,3 +5,6 @@ Run this command to launch the project:
 
 Run this command to analyse project dependencies:
 `./gradlew buildHealth`
+
+Run this command to see dependency tree:
+`./gradlew :app:dependencies`
