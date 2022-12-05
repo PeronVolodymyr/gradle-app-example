@@ -11,6 +11,8 @@ application {
 dependencies {
     implementation(project(":data-model"))
     implementation(project(":business-logic"))
+//  This library is declared here and in 'business-logic' module for strict dependency separation.
+    implementation("org.apache.commons:commons-lang3:3.12.0")
 
 //  slf4j implementation
     runtimeOnly("org.slf4j:slf4j-simple:1.7.36")
