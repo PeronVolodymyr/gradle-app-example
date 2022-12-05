@@ -22,7 +22,7 @@ dependencies {
 //  Dependency is transitively visible during compilation. Only applicable to java libraries.
 //  This library will be transitively visible at compile. 'app' module depends on this 'business-logic' module.
 //  So, we would be able to access 'commons-lang3' library transitively through 'business-logic' inside the 'app' module.
-//  api("org.apache.commons:commons-lang3:3.12.0")
+//  api("libs.commons.lang")
 
 //  Only available at compile time but when the application run it's gone.
 //  compileOnly("group:name")
