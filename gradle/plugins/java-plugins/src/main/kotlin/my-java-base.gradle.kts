@@ -29,6 +29,15 @@ java {
     toolchain.languageVersion.set(JavaLanguageVersion.of(17))
 }
 
+tasks.test {
+    // Use Junit 5
+    useJUnitPlatform()
+    // Increase your test performance by parallel execution
+    maxParallelForks = 4
+    // Modify this if you have memory hungry tests
+    maxHeapSize = "1g"
+}
+
 // Be careful as it will configure all tasks with type 'JavaCompile'.
 tasks.withType<JavaCompile>().configureEach {
     options.encoding = "UTF-8"
