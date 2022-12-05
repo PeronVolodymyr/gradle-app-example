@@ -5,8 +5,8 @@ plugins {
 
 // 'business-logic' depends on 'data-model' module and external 'commons-lang3' library.
 dependencies {
-//  Dependency versioning
-    implementation(platform("com.example:platform"))
+//  Dependency versioning. Comment it out as I would prefer to use another approach with 'libs.versions.toml'.
+//  implementation(platform("com.example:platform"))
 
     implementation(project(":data-model"))
 
@@ -14,10 +14,10 @@ dependencies {
 //  It's better when each module has it's own dependencies declared.
 //  In that case you have components strictly isolated and there is less risk that something
 //  is used by an accident because it's just visible transitively during compilation.
-    implementation("org.apache.commons:commons-lang3")
+    implementation(libs.commons.lang)
 
 //  slf4j API specification
-    implementation("org.slf4j:slf4j-api")
+    implementation(libs.slf4j.api)
 
 //  Dependency is transitively visible during compilation. Only applicable to java libraries.
 //  This library will be transitively visible at compile. 'app' module depends on this 'business-logic' module.

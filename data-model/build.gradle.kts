@@ -7,7 +7,7 @@ plugins {
 }
 
 dependencies {
-    //  Dependency versioning
-    implementation(platform("com.example:platform"))
+//  Dependency versioning. Comment it out as I would prefer to use another approach with 'libs.versions.toml'.
+//  implementation(platform("com.example:platform"))
 }
 

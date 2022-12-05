@@ -9,15 +9,15 @@ application {
 
 // 'app' depends on 'data-model' and 'business-logic' modules
 dependencies {
-//  Dependency versioning
-    implementation(platform("com.example:platform"))
+//  Dependency versioning. Comment it out as I would prefer to use another approach with 'libs.versions.toml'.
+//  implementation(platform("com.example:platform"))
 
     implementation(project(":data-model"))
     implementation(project(":business-logic"))
 //  This library is declared here and in 'business-logic' module for strict dependency separation.
-    implementation("org.apache.commons:commons-lang3")
+    implementation(libs.commons.lang)
 
 //  slf4j implementation
-    runtimeOnly("org.slf4j:slf4j-simple")
+    runtimeOnly(libs.slf4j.simple)
 }
 
